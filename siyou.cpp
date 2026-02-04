@@ -1,9 +1,9 @@
 #include <iostream>
 struct OHLC{
     unsigned int Open  :22;
-    unsigned int High  :14;
-    unsigned int Low   :14;
-    unsigned int Close :14;
+    signed int High  　:14;
+    signed int Low   　:14;
+    signed int Close 　:14;
 };
 
 int main(int argv,char** argc){
@@ -13,4 +13,5 @@ int main(int argv,char** argc){
     sample.Low  =0;
     sample.Close=10000;
     return 0;
+
 }
