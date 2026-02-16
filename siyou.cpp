@@ -1,10 +1,15 @@
-#include <iostream>
+#include <cstdint>
 struct OHLC{
-    unsigned int Open  :22;
-    signed int High  　:14;
-    signed int Low   　:14;
-    signed int Close 　:14;
-};
+    uint64_t Open :22;
+    int64_t  High :14;
+    int64_t  Low  :14;
+    int64_t  Close:14;
+    OHLC():Open(0),High(0),Low(0),Close(0) {}
+    inline int OpenT ()  const{return (int)Open;}
+    inline int HighT ()  const{return (int)Open+(int)High;}
+    inline int LowT  ()  const{return (int)Open+(int)Low;}
+    inline int CloseT()  const{return (int)Open+(int)Close;}
+}__attribute__((packed));
 
 int main(int argv,char** argc){
     OHLC sample;
@@ -15,3 +20,4 @@ int main(int argv,char** argc){
     return 0;
 
 }
+
